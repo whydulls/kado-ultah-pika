@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, pikachu🩷! ❤️</title>
+    <style>
+        /* --- STYLE DASAR --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #ffe4e1, #ffb6c1);
+            color: #4a4a4a;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* --- SCREEN 1: AMPLOP SURAT --- */
+        #envelope-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff0f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: all 1s ease;
+        }
+        .envelope {
+            font-size: 80px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            animation: float 2s infinite ease-in-out;
+        }
+        .envelope:hover {
+            transform: scale(1.2);
+        }
+        .open-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        /* --- SCREEN 2: KONTEN UTAMA --- */
+        #main-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.5s ease;
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d11a5b;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .sub-title {
+            font-style: italic;
+            color: #ff1493;
+            margin-bottom: 30px;
+        }
+
+        /* --- TEMPAT FOTO & VIDEO --- */
+        .media-container {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .media-placeholder {
+            width: 100%;
+            height: 350px;
+            background: #eee;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        /* Jika nanti pasang foto/video, otomatis responsif */
+        .media-placeholder img, .media-placeholder video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- KATA-KATA ROMANTIS --- */
+        .love-letter {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 25px;
+            border-radius: 15px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #ff69b4;
+        }
+        .gombalan {
+            font-weight: bold;
+            color: #d11a5b;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        /* --- ANIMASI FLOATING --- */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* --- HUJAN HATI --- */
+        .heart-fall {
+            position: fixed;
+            top: -10%;
+            font-size: 20px;
+            animation: fall linear forwards;
+            z-index: 99;
+            user-select: none;
+        }
+        @keyframes fall {
+            to {
+                top: 110%;
+                transform: translateX(100px) rotate(360px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AUDIO LATAR (Ganti sumber musik di sini nanti) -->
+    <audio id="bg-music" loop>
+        <source src="musikku.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- HALAMAN PEMBUKA -->
+    <div id="envelope-screen">
+        <div class="envelope" onclick="openLetter()">✉️</div>
+        <p style="margin-top: 15px; color: #777;">Ada surat cinta spesial buat kamu...</p>
+        <button class="open-btn" onclick="openLetter()">Buka Surat ❤️</button>
+    </div>
+
+    <!-- KONTEN UTAMA WEBSITE -->
+    <div id="main-content">
+        <h1>Selamat Ulang Tahun, Sayang! ✨</h1>
+        <p class="sub-title">Hari ini dunia jadi lebih indah karena ada kamu.</p>
+
+        <!-- AREA FOTO / VIDEO -->
+        <div class="media-container">
+            <div class="media-placeholder">
+                <!-- TIPS: Ganti text di bawah ini dengan tag <img> atau <video> nanti -->
+                <p style="color: #999; padding: 20px;">[ Taruh Foto/Video Paling Cantik Miliknya Di Sini ]</p>
+            </div>
+        </div>
+
+        <!-- SURAT CINTA & GOMBALAN -->
+        <div class="love-letter">
+            <p>Selamat berkurang usianya, manusia favoritku! Di hari yang spesial ini, aku cuma mau bilang terima kasih banyak ya sudah lahir ke dunia dan kasih warna yang luar biasa di hidup aku.</p>
+            <br>
+            <p>Semoga di usia yang baru ini, kamu selalu diberikan kebahagiaan, kesehatan, dan semua impian kamu satu per satu bisa terwujud. Apapun jalannya nanti, ingat ya, aku bakal selalu ada di sini buat dukung kamu.</p>
+            
+            <p class="gombalan">"Katanya kalau bumi punya gaya gravitasi yang bikin benda jatuh ke bawah, kalau kamu punya gaya apa ya? Soalnya sukses bikin aku jatuh hati terus setiap hari. Selamanya. HBD ❤️"</p>
+        </div>
+
+        <p style="color: #d11a5b; font-size: 0.9rem; margin-top: 50px;">Dibuat dengan segenap cinta dari Pasanganmu</p>
+    </div>
+
+    <!-- SCRIPT INTERAKTIF -->
+    <script>
+        function openLetter() {
+            // Mainkan musik
+            const music = document.getElementById('bg-music');
+            music.play().catch(error => console.log("Musik butuh interaksi user dulu:", error));
+
+            // Hilangkan amplop dengan animasi smooth
+            const envScreen = document.getElementById('envelope-screen');
+            envScreen.style.opacity = '0';
+            setTimeout(() => {
+                envScreen.style.display = 'none';
+                
+                // Munculkan konten utama
+                const mainContent = document.getElementById('main-content');
+                mainContent.style.display = 'block';
+                setTimeout(() => {
+                    mainContent.style.opacity = '1';
+                    mainContent.style.transform = 'translateY(0)';
+                }, 50);
+
+                // Mulai efek hujan hati
+                setInterval(createHeart, 300);
+            }, 1000);
+        }
+
+        // Fungsi membuat efek hati berjatuhan
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-fall');
+            
+            // Variasi bentuk emoji cinta
+            const hearts = ['❤️', '💖', '🌸', '💕', '✨'];
+            heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+            
+            // Posisi random acak
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s"; // antara 2-5 detik
+            heart.style.opacity = Math.random();
+            heart.style.fontSize = Math.random() * 15 + 15 + "px";
+            
+            document.body.appendChild(heart);
+            
+            // Hapus element setelah jatuh agar web tidak berat
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
